@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:sec="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<!-- resources 폴더 security 대상 제외 -->
+	<sec:http pattern="/resources/**" security="none"></sec:http>
+	
+	<bean id="customUserDetailsService"	class="com.gOooL.security.CustomUserDetailsService" />
+	<bean id="customAuthenticationProvider"	class="com.gOooL.security.CustomAuthenticationProvider" />
+			
+	<bean id="loginSuccessHandler" class="com.gOooL.security.LoginSuccessHandler" />
+	<bean id="loginFailureHandler" class="com.gOooL.security.LoginFailureHandler">
+		<property name="loginFormPath" value="/login/loginForm" />
+	</bean>
+	
+				
+	<sec:authentication-manager alias="authenticationManager">
+	
+		<sec:authentication-provider ref="customAuthenticationProvider" />
+		<!-- <sec:authentication-provider user-service-ref="customUserDetailsService" /> -->
+
+		
+	</sec:authentication-manager>
+
+	<sec:http use-expressions="true">
+	
+		<sec:access-denied-handler error-page="/security/accessDenied"/>
+		
+		<sec:intercept-url pattern="/board/**" access="permitAll" />
+		
+		<sec:intercept-url pattern="/login/loginForm" access="permitAll" />
+		<sec:intercept-url pattern="/login/process" access="permitAll" />
+		<sec:intercept-url pattern="/admin/usermanager/**" access="hasAuthority('USER_MANAGER')" />
+		<sec:intercept-url pattern="/member/**" access="isAuthenticated()" />
+		<sec:intercept-url pattern="/**" access="permitAll" />
+		
+		<sec:form-login 
+			login-page="/login/loginForm"
+			login-processing-url="/login/process"
+			username-parameter="userid"
+			password-parameter="password"
+			authentication-success-handler-ref="loginSuccessHandler"
+			authentication-failure-handler-ref="loginFailureHandler"
+			default-target-url="/index"
+			authentication-failure-url="/user/loginform?error=true"
+		/>
+		
+		<sec:logout logout-url="/user/logout" />
+		
+	</sec:http>
+		
+</beans>
