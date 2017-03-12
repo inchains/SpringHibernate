@@ -28,9 +28,12 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
 		
 		User user = userDao.getUserByUserId(userId);
 
-		Integer loginFailCnt = user.getLoginFailCnt() + 1;
-		
-		user.setLoginFailCnt(loginFailCnt);
+		if(user != null) {
+
+			Integer loginFailCnt = user.getLoginFailCnt() + 1;
+			
+			user.setLoginFailCnt(loginFailCnt);
+		}
 
 		request.getRequestDispatcher(loginFormPath).forward(request, response);
 	}

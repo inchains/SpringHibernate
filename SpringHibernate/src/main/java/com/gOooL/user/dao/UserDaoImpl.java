@@ -18,7 +18,7 @@ public class UserDaoImpl implements UserDao {
 	public User getUserByUserId(String userId) {
 		
 		StringBuffer sbQry = new StringBuffer()
-		.append("  from Users u 			")
+		.append("  from User u 			")
 		.append(" where u.userId = :userId 	");
 		
 		User users = (User)sessionFactory.getCurrentSession().createQuery(sbQry.toString()).setString("userId", userId).uniqueResult();
