@@ -13,7 +13,7 @@
 	 -->
 	<!-- <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" /> -->
 		
-	<context:property-placeholder location="classpath:/db.properties" />
+	<!-- <context:property-placeholder location="classpath:/db.properties" /> -->
 	
 	<!-- bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="org.hsqldb.jdbcDriver" />
