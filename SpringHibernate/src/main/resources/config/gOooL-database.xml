@@ -11,7 +11,7 @@
 	<!--
 		@Repository의 Exception을 Spring이 지원하는 DataAccessException으로 변환 
 	 -->
-	<!-- <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" /> -->
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 		
 	<!-- <context:property-placeholder location="classpath:/db.properties" /> -->
 	
