@@ -7,7 +7,7 @@
 <head>
 
 	<title>로그인</title>
-	<link href="<c:url value="/css/bootstrap.css" />" rel="stylesheet">
+	<link href="<c:url value="/css/bootstrap/bootstrap.css" />" rel="stylesheet">
 
 </head>
 
