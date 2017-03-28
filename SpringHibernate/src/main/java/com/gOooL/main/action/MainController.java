@@ -12,4 +12,10 @@ public class MainController {
 		
 		return "main/main";
 	}
+	
+	@RequestMapping("/main/popup")
+	public String popup(Model model) throws RuntimeException {
+		
+		return "main/popup";
+	}
 }
