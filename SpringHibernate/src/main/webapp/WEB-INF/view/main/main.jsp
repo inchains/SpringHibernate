@@ -94,9 +94,53 @@
 
     <!-- content -->
 	<a  name="services"></a>
-	
-    <div class="content-section-a">
 
+	<c:forEach items="${aBoard}" var="aBoard" varStatus="idx">
+		
+		<c:if test="${idx.count % 2 == 1}">
+		
+		<div class="content-section-a">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-5 col-sm-6">
+	                    <hr class="section-heading-spacer">
+	                    <div class="clearfix"></div>
+	                    <h2 class="section-heading">${aBoard.title}</h2>
+	                    <p class="lead">${aBoard.content}</p>
+	                </div>
+	                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+	                    <img class="img-responsive" src="img/ipad.png" alt="">
+	                </div>
+	            </div>
+	        </div>
+    	</div>
+
+		</c:if>
+
+		<c:if test="${idx.count % 2 == 0}">
+		
+   		<div class="content-section-b">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+	                    <hr class="section-heading-spacer">
+	                    <div class="clearfix"></div>
+	                    <h2 class="section-heading">${aBoard.title}</h2>
+	                    <p class="lead">${aBoard.content}</p>
+	                </div>
+	                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+	                    <img class="img-responsive" src="img/dog.png" alt="">
+	                </div>
+	            </div>
+			</div>
+        </div>
+        		
+		</c:if>
+		
+	</c:forEach>
+	
+	<%--	
+    <div class="content-section-a">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
@@ -111,15 +155,10 @@
             </div>
 
         </div>
-        <!-- /.container -->
-
     </div>
-    <!-- /.content-section-a -->
 
     <div class="content-section-b">
-
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
@@ -131,23 +170,46 @@
                     <img class="img-responsive" src="img/dog.png" alt="">
                 </div>
             </div>
-
         </div>
-        <!-- /.container -->
-
     </div>
+    --%> 
     <!-- content -->
 
 	<!-- content2 -->    
     <section id="portfolio" class="bg-light-gray">
+    
         <div class="container">
+        
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Portfolio</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
+            
             <div class="row">
+            
+            	<c:forEach items="${bBoard}" var="bBoard">
+
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <!-- <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal"> -->
+                    <a class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/aaa/portfolio/${bBoard.image}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>${bBoard.title}</h4>
+                        <p class="text-muted">${bBoard.subTitle}</p>
+                    </div>
+                </div>
+
+				</c:forEach>
+				                
+            	<%--
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <!-- <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal"> -->
                     <a class="portfolio-link" data-toggle="modal">
@@ -233,8 +295,11 @@
                         <p class="text-muted">Website Design</p>
                     </div>
                 </div>
+                 --%>
             </div>
+            
         </div>
+        
     </section>
     <!-- content2 -->
     
@@ -296,7 +361,8 @@
                 </div>
             </div>
         </div>
- -->    </div>
+ -->    
+ 	</div>
     
     
 </body>

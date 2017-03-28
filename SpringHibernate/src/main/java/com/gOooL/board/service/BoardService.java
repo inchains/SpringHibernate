@@ -6,7 +6,7 @@ import com.gOooL.dao.model.Board;
 
 public interface BoardService {
 
-	List<Board> getBoards();
+	List<Board> getBoards(String type);
 
 	void insertBoard(Board board) throws RuntimeException;
 	

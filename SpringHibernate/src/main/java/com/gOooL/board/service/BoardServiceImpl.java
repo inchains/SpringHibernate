@@ -16,9 +16,10 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired 
 	BoardDao boardDao;
 	
-	public List<Board> getBoards() {
+	@Transactional
+	public List<Board> getBoards(String type) {
 
-		return boardDao.getBoards();
+		return boardDao.getBoards(type);
 	}
 
 	public void insertBoard(Board board) throws RuntimeException {
@@ -43,6 +44,6 @@ public class BoardServiceImpl implements BoardService {
 		
 		insertBoard(board);
 
-		return boardDao.getBoards();
+		return boardDao.getBoards("B");
 	}
 }

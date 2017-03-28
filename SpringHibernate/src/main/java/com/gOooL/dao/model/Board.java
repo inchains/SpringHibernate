@@ -15,12 +15,21 @@ public class Board {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "SEQ")
 	private Integer seq;
+
+	@Column(name = "TYPE")
+	private String type;
 	
 	@Column(name = "TITLE")
 	private String title;
+
+	@Column(name = "SUB_TITLE")
+	private String subTitle;
 	
 	@Column(name = "CONTENT")
 	private String content;
+
+	@Column(name = "IMAGE")
+	private String image;
 
 	public Integer getSeq() {
 		return seq;
@@ -28,6 +37,14 @@ public class Board {
 
 	public void setSeq(Integer seq) {
 		this.seq = seq;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getTitle() {
@@ -38,11 +55,27 @@ public class Board {
 		this.title = title;
 	}
 
+	public String getSubTitle() {
+		return subTitle;
+	}
+
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
+	}
+
 	public String getContent() {
 		return content;
 	}
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }

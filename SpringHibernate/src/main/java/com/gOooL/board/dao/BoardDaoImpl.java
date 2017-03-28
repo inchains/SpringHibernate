@@ -15,9 +15,9 @@ public class BoardDaoImpl implements BoardDao {
 	private SessionFactory sessionFactory;
 
 	@SuppressWarnings("unchecked")
-	public List<Board> getBoards() {
+	public List<Board> getBoards(String type) {
 
-		return (List<Board>)sessionFactory.getCurrentSession().createQuery(" from Board ").list();
+		return (List<Board>)sessionFactory.getCurrentSession().createQuery(" from Board where type = '" + type + "'").list();
 	}
 
 	public void insertBoard(Board board) throws RuntimeException {
