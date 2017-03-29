@@ -20,6 +20,11 @@ public class BoardDaoImpl implements BoardDao {
 		return (List<Board>)sessionFactory.getCurrentSession().createQuery(" from Board where type = '" + type + "'").list();
 	}
 
+	public Board getBoard(String seq) {
+
+		return (Board)sessionFactory.getCurrentSession().createQuery(" from Board where seq = '" + seq + "'").uniqueResult();
+	}
+	
 	public void insertBoard(Board board) throws RuntimeException {
 
 		sessionFactory.getCurrentSession().save(board);

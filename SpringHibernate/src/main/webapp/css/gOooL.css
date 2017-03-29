@@ -313,3 +313,6 @@ ul.social-buttons li a:active {
   opacity: 0;
   display: none;
 }
+.img-centered {
+  margin: 0 auto;
+}

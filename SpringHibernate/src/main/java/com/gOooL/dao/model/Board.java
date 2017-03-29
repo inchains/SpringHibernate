@@ -31,6 +31,9 @@ public class Board {
 	@Column(name = "IMAGE")
 	private String image;
 
+	@Column(name = "BIG_IMAGE")
+	private String bigImage;
+	
 	public Integer getSeq() {
 		return seq;
 	}
@@ -77,5 +80,13 @@ public class Board {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public String getBigImage() {
+		return bigImage;
+	}
+
+	public void setBigImage(String bigImage) {
+		this.bigImage = bigImage;
 	}
 }

@@ -2,6 +2,8 @@ package com.gOooL.main.action;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +31,11 @@ public class MainController {
 	}
 	
 	@RequestMapping("/main/popup")
-	public String popup(Model model) throws RuntimeException {
+	public String popup(HttpServletRequest request, Model model) throws RuntimeException {
+		
+		Board bBoard = boardService.getBoard(request.getParameter("seq"));
+		
+		model.addAttribute("bBoard", bBoard);
 		
 		return "main/popup";
 	}

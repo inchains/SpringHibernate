@@ -19,12 +19,18 @@
 			
 			$('.portfolio-link').on('click', function(){
 				
-				$("#portfolioModal1").load('/SpringHibernate/main/popup', '', function() {
+				/*$("#portfolioModal1").load('/SpringHibernate/main/popup', '', function() {
 					$("#portfolioModal1").modal();
-				});
+				});*/
 			});
 		});
 		
+		function goPopup(seq) {
+			
+			$("#portfolioModal1").load('/SpringHibernate/main/popup', {seq : seq}, function() {
+				$("#portfolioModal1").modal();
+			});
+		}
 	</script>
 	
 </head>
@@ -47,9 +53,6 @@
                     </li>
                     <li>
                         <a href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -93,7 +96,7 @@
 	<!-- Header -->
 
     <!-- content -->
-	<a  name="services"></a>
+	<a name="services"></a>
 
 	<c:forEach items="${aBoard}" var="aBoard" varStatus="idx">
 		
@@ -193,7 +196,7 @@
 
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <!-- <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal"> -->
-                    <a class="portfolio-link" data-toggle="modal">
+                    <a class="portfolio-link" data-toggle="modal" onClick="goPopup('${bBoard.seq}')">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>

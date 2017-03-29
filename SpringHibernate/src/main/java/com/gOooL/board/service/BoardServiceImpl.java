@@ -22,6 +22,12 @@ public class BoardServiceImpl implements BoardService {
 		return boardDao.getBoards(type);
 	}
 
+	@Transactional
+	public Board getBoard(String seq) {
+
+		return boardDao.getBoard(seq);
+	}
+	
 	public void insertBoard(Board board) throws RuntimeException {
 		
 		boardDao.insertBoard(board);		

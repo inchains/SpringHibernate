@@ -8,5 +8,7 @@ public interface BoardDao {
 
 	List<Board> getBoards(String type);
 	
+	Board getBoard(String seq);
+	
 	void insertBoard(Board board) throws RuntimeException;
 }
